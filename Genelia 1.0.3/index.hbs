@@ -1,0 +1,35 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- Site header - partials/site-header.hbs --}}
+{{> site-header }}
+
+{{!-- Site Hero - partials/section/hero.hbs --}}
+{{#if @custom.hero_section }}
+	{{#is "home"}}
+		{{> section/hero heading=@custom.hero_heading_text }}
+	{{/is}}
+{{/if}}
+
+{{!-- Site Featured - partials/section/featured-post.hbs --}}
+{{#if @custom.featured_posts_section}}
+	{{#is "home"}}
+		{{> section/featured-post}}
+	{{/is}}
+{{/if}}
+
+{{!-- Site Top Tags - partials/section/tags.hbs --}}
+{{#is "home"}}
+	{{> section/tags}}
+{{/is}}
+
+{{!-- Site Blog Posts - partials/section/blog-post.hbs --}}
+{{> section/blog-post }}
+
+{{!-- Site Top Tags - partials/section/recommended.hbs --}}
+{{#if @custom.recommended_post_section}}
+	{{#is "home"}}
+		{{> section/recommended heading=(t "In Case you missed it!") }}
+	{{/is}}
+{{/if}}

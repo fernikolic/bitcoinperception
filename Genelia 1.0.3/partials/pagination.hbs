@@ -1,0 +1,14 @@
+{{#if next}}
+<div class="load-more-btn-area">
+	<a href="#" class="load-more-btn js-load-posts">{{t "Load More"}}</a>
+</div>
+{{/if}}
+<nav class="navigation paging-navigation text-center pd-t-5 d-none">
+    {{#if prev}}
+        <a class="newer-posts" href="{{page_url prev}}">&larr; {{t "Newer Posts"}}</a>
+    {{/if}}
+    <span class="page-number">{{t "Page {page1} of {pages2}"  page1=page pages2=pages }}</span>
+    {{#if next}}
+        <a class="older-posts" href="{{page_url next}}">{{t "Older Posts"}} &rarr;</a>
+    {{/if}}
+</nav>

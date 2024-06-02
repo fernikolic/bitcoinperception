@@ -1,0 +1,16 @@
+{{#get "tags" limit="6" include="count.posts" order="count.posts desc"}}
+	{{#if tags}}
+		<div class="col-lg-3 col-md-6">
+			<aside class="widget widget_tags">
+				<h2 class="widget-title">{{t "Tags"}}</h2>
+				<div class="widget-content">
+					<ul>
+					    {{#foreach tags visibility="public"}}
+					        <li><a href="{{url}}">{{name}}</a></li>
+					    {{/foreach}}
+					</ul>
+				</div>
+			</aside>
+		</div>
+	{{/if}}
+{{/get}}

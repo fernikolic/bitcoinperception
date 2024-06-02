@@ -1,0 +1,22 @@
+<div class="paid-subscription-box mb-40 mb-md-50 mb-lg-60">
+    <div class="paid-post-content">
+        <div class="premium-post-message posts-paid {{visibility}}">
+            <h3>{{t "This post is for paying subscribers only"}}</h3>
+            <p>{{t "Sign up now and upgrade your account to read the post and get access to the full library of posts for paying subscribers only."}}</p>
+        </div>
+        <div class="premium-post-message post-members {{visibility}}">
+            <h3>{{t "This post is for subscribers only"}}</h3>
+            <p>{{t "Sign up now to read the post. To get access to the full library of posts, you can be a paying subscriber"}}</p>
+        </div>
+        {{#if @member}}
+        <div class="sign-up-btn mt-10">
+            <a href="/account/" class="btn btn-signup">{{t "See plans"}}</a>
+        </div>
+        {{else}}
+        <div class="sign-up-btn mt-10">
+            <a href="/signup/" class="btn btn-signup">{{t "Subscribe"}}</a>
+        </div>
+        {{/if}}
+        <p class="font-weight-light">{{t "Already have an account?"}}&nbsp;&nbsp;<a class="font-weight-bold" href="/signin/">{{t "Sign in"}}</a></p>
+    </div>
+</div>

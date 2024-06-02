@@ -1,0 +1,96 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- Site header - partials/site-header.hbs --}}
+{{> site-header }}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+<div class="breadcumb-section">
+	<div class="container-xxl">
+
+	</div>
+</div>
+
+
+
+			{{!-- Single Post Bottom Part --}}
+			<div class="blog-single-bottom">
+				<div class="container-xxl">
+					<div class="row justify-content-lg-center">
+
+							<div class="post-details" id="intro">							
+								<div class="entry-content">
+									<div class="all-contents">
+										{{content}}
+									</div>
+			
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+		
+			
+			{{#match @custom.comment_type  "Disqus Comments"}}					
+				{{#if @custom.comments_disqus_short_name}}
+					{{#if access}}
+						{{!-- comment-section --}}
+							<script>
+								(function() { // DON'T EDIT BELOW THIS LINE
+								var d = document, s = d.createElement('script');
+								s.src = 'https://{{@custom.comments_disqus_short_name}}.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+								})();
+							</script>
+							<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+							<div id="disqus_thread" class="disqus_comment_box" ></div>
+						</div>
+
+						{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+						{{#contentFor "scripts"}}
+						<script>
+							var disqus_shortname = "{{@custom.comments_disqus_short_name}}"
+							var disqus_config = function () {
+								this.page.url = "{{url absolute="true"}}";
+								this.page.identifier = "ghost-{{comment_id}}";
+							};
+						</script>
+						{{/contentFor}}
+					{{/if}}
+				{{/if}}
+			{{/match}}
+			
+		</div>
+	</div>
+
+		<div class="container-xxl">
+			{{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{comment_id}}+feature_image:-null" limit="4" include="tags"}}
+			{{#if posts}} 
+			<div class="related-wrapper">
+				<div class="row mb-4">
+					<div class="col-md-6">
+						<h3 class="section-title-m text-uppercase">{{>svg/polygonal}}{{t "You might also like"}}</h3>
+					</div>
+					<div class="col-md-6 text-end"></div>
+				</div>
+				<div class="row gx-5">
+					{{#foreach posts  visibility="all"}}
+						{{!-- The tag below includes the markup for each post - partials/post-content.hbs --}}
+						{{> component/recomanded }}
+					{{/foreach}}
+				</div>
+			</div>
+			{{/if}}
+			{{/get}}
+		</div>
+	</div>
+</div>
+
+{{/post}}

@@ -1,0 +1,75 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- Site header - partials/site-header.hbs --}}
+{{> site-header }}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+<div class="main-wrapper">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-lg-12">
+				<div class="row justify-content-center">
+					<div class="col-md-5 text-center">
+						<div class="heading-wrap">
+							<h1 class="mb-3">{{title}}</h1>
+						</div>                            
+					</div>
+				</div>
+
+				<div class="row justify-content-center mb-5"> 
+					<div class="col-lg-7 text-center">
+						<p class="parrnet-sub-heading">                 
+						{{#if custom_excerpt}}
+							{{custom_excerpt}}
+						{{else}}
+							{{excerpt words="20"}}
+						{{/if}}         
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					{{#if feature_image}}
+					<div class="col-md-12">
+						<figure class="membership-feature-img mb-5">
+							<img class="lazy" srcset="{{img_url feature_image size="s"}} 300w,
+								{{img_url feature_image size="m"}} 600w,
+								{{img_url feature_image size="l"}} 1000w,
+								{{img_url feature_image size="xl"}} 1300w,
+								{{img_url feature_image size="xxl"}} 2000w"
+								sizes="(max-width: 1300px) 1200px, 1200px"
+								data-src="{{img_url feature_image size="xl"}}"
+								alt="{{title}}"
+							/>
+						</figure>
+					</div>
+					{{/if}}
+				</div>
+
+				{{!-- The main content area --}}
+				<main class="site-main">
+                    {{#get "posts" filter="featured:true" include="authors,tags" limit=@config.posts_per_page}}
+                        <div class="row gx-5" id="post-masonry">
+                            {{#foreach posts}}
+                                {{!-- The tag below includes the markup for each post - partials/post-content.hbs --}}
+                                <div class="col-md-6 col-lg-4 post-loop">
+                                    {{> "post-content"}}
+                                </div>
+                            {{/foreach}}
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center mt-4">
+                                {{pagination}}
+                            </div>
+                        </div>
+                    {{/get}}
+				</main>
+			</div>
+		</div>
+	</div>
+</div>
+{{/post}}

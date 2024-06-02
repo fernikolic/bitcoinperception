@@ -1,0 +1,93 @@
+{{!< default}}
+
+{{!-- Site header - partials/site-header.hbs --}}
+{{> site-header }}
+
+{{#if @member }}
+    {{!-- Member: Redirect to account --}}
+    <script>window.location = '{{@site.url}}/account/';</script>
+{{else}}
+    {{#is "page"}}
+        {{#post}}
+            <main class="main-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
+                                    <h1 class="global-title mb-5">{{title}}</h1>                         
+                                </div>
+                            </div>
+
+                            <!-- New Checkout Button -->
+                            <div class="row mt-4 mb-4 text-center">
+                                <div class="col">
+                                    <a href="https://checkout.opennode.com/p/e14642e1-d563-41c1-a8c2-99048a769e1f" target="_blank">
+                                        <img style="width:200px;" src="https://app.opennode.com/pay-with-bitcoin.svg" alt="Pay with Bitcoin"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End New Checkout Button -->
+
+                            <div class="pricing-section mrt-75">
+                                <div class="container-xxl">
+                                    <div class="row">
+                                        <div class="col text-center mb-4">
+                                            <div class="membership-toogle" data-active-price="yearly">
+                                                <div class="membership-toogle-wrap">
+                                                    <button data-price="monthly">{{t "Monthly Billing"}}</button>
+                                                    <button data-price="yearly">{{t "Annual Billing"}}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gx-5 justify-content-center membership-tires-wrapper" data-active-price="yearly">
+                                        {{#get "tiers" include="monthly_price,yearly_price,benefits" limit="all"}}
+                                            {{#foreach tiers}}
+                                                {{> members/pricing-tables/price-table}}
+
+                                            {{/foreach}}
+                                        {{/get}}
+                                    </div>
+
+                                    <div class="row mt-4 mb-5 text-center">
+                                        <p class="account-links">{{t "Already have an account?"}}&nbsp;<a href="{{@site.url}}/signin/">{{t "Sign in"}}</a></p>
+                                    </div>
+
+                                    <div class="row mt-5">
+                                        <div class="col-lg-12 mt-5">
+                                            <div class="price-content-blocks">
+                                                <div class="entry-content">
+                                                    <div class="entry-summary">
+                                                        {{content}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <script>
+                !function(){
+                    const member_element = document.querySelector(".membership-toogle"),
+                        tires = document.querySelector(".membership-tires-wrapper"),
+                        button = document.querySelectorAll(".membership-toogle button"),
+                        month = document.querySelectorAll(".price [data-price='monthly']"),
+                        year = document.querySelectorAll(".price [data-price='yearly']");
+
+                        month.length > 0 && year.length > 0 && button.forEach( (index)=> {
+                            index.addEventListener("click", ()=> {
+                                member_element.setAttribute("data-active-price", index.getAttribute("data-price"));
+                                tires.setAttribute("data-active-price", index.getAttribute("data-price"));
+                            });
+                        })
+                }();
+            </script>
+        {{/post}}
+    {{/is}}
+{{/if}}

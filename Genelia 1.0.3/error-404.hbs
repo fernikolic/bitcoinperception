@@ -1,0 +1,40 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- Site header - partials/site-header.hbs --}}
+{{> site-header }}
+
+<!-- error start  -->
+<div class="main-wrapper">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="main-wrapper-content">
+                    {{!-- The main content area --}}
+                    <div class="site-main">
+                        <div class="error-content-area">
+                            <div class="container-wrapper">                                    
+                                <div class="error-styles text-center">
+                                    <div class="d-flex justify-content-center error-image">
+                                        <img src="{{asset "images/error-404.webp"}}" alt="{{statusCode}}" id="error-404"> 
+                                    </div>  
+                                    <div class="d-flex justify-content-between align-items-center error-header">
+                                        <h1 class="error-messages">{{t "oops!"}}</h1>
+                                        <h2 class="error-messages-sub">{{message}}</h2>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center mt-4">
+                                    <div class="col-lg-12 text-center">
+                                        <p class="parrnet-sub-heading">{{t "A 404 error is a common error and can be caused by a number of issues. Essentially, a 404 error occurs when the information that you requested is not available."}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

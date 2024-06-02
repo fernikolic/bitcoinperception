@@ -1,0 +1,22 @@
+{{#get "posts" limit="3" filter="featured:true" include="authors,tags"}}
+    {{#if posts}}
+	<section class="featured-posts">
+		<div class="container-xxl">
+			<div class="row mb-4 align-items-center">
+				<div class="col-6">
+					<h3 class="section-title-m text-uppercase">{{>svg/polygonal}}{{t "Featured"}}</h3>
+				</div>
+				<div class="col-6 text-end"><a href="{{@site.url}}/featured" class="featured-button text-uppercase">{{t "View All"}}</a></div>
+			</div>
+			<div class="row gx-5">
+				{{! Loop through our featured posts }}
+				{{#foreach posts}}
+					<div class="col-lg-4">
+						{{> "post-content"}}
+					</div>
+				{{/foreach}}
+			</div>
+		</div>
+	</section>
+    {{/if}}
+{{/get}}

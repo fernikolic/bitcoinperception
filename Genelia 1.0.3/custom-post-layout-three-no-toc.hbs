@@ -1,0 +1,258 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- Site header - partials/site-header.hbs --}}
+{{> site-header }}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+<div class="breadcumb-section">
+	<div class="container-xxl">
+		{{!-- Site breadcrumb --}}
+		<ul class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{{@site.url}}">Home</a></li>
+			<li class="devider">{{> svg/arrow-right}}</li>
+			{{#primary_tag}}
+			<li class="breadcrumb-item"><a href="{{url}}">{{name}}</a></li>
+			<li class="devider">{{> svg/arrow-right}}</li>
+			{{/primary_tag}}
+			<li class="breadcrumb-item breadcrumb-current">{{title}}</li>
+		</ul>
+	</div>
+</div>
+
+<div class="single-wrapper">
+	<div class="post-single-content">
+		<article class="single-post {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+
+			{{!-- Single Post Top Part --}}
+			<div class="blog-single-top">
+				<div class="container-xxl">
+					<div class="row gx-5">
+						<div class="col-lg-12">
+							<div class="row justify-content-lg-center">
+								<div class="col-lg-10">
+									<div class="entry-header mb-5 text-center">
+										<div class="top-meta">
+											<div class="left-meta">
+												<div class="entry-user flex-xl-column justify-content-center align-items-center">
+													<div class="d-flex mb-4">
+														{{#foreach authors}}
+														<div class="thumb">
+															{{#if profile_image}}
+															<a href="{{url}}" class="static-avatar">
+																<img class="author-profile-image" src="{{img_url profile_image size="xxs"}}" alt="{{name}}" />
+															</a>
+															{{else}}
+															<a href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</a>
+															{{/if}}
+														</div>
+														{{/foreach}}
+													</div>
+
+													<div class="author-list">
+														<div class="mt-0">
+															{{authors separator=" & "}}
+														</div>
+														<div class="mt-2">
+															<div><time class="byline-meta-date" datetime="{{date format="MMM-DD-YYYY"}}">{{date format="MMMM DD - YYYY"}}</time> - {{reading_time}}</div>
+														</div>
+													</div>
+												</div>		
+											</div>
+										</div>
+
+										<h1 class="entry-title">{{title}}</h1>
+										{{#if custom_excerpt}}
+										<div class="custom-single-excerpt mrb-60">
+											<p class="post-full-custom-excerpt">{{custom_excerpt}}</p>
+										</div>
+										{{/if}}
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="post-thumbnail-area single-post-thumbnail">
+								{{#if feature_image}}
+								<figure class="post-thumb">
+									{{!-- This is a responsive image, it loads different sizes depending on device --}}
+									<img
+										srcset="{{img_url feature_image size="s"}} 300w,
+												{{img_url feature_image size="sm"}} 400w,
+												{{img_url feature_image size="sm"}} 500w,
+												{{img_url feature_image size="sl"}} 600w"
+										sizes="(min-width: 1400px) 1400px, 92vw" 
+										src="{{img_url feature_image size="xl"}}" 
+										alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" 
+									/>
+									{{#if feature_image_caption}}
+										<figcaption class="figure-caption text-center">{{feature_image_caption}}</figcaption>
+									{{/if}}
+								</figure>
+								{{/if}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{{!-- Single Post Bottom Part --}}
+			<div class="blog-single-bottom">
+				<div class="container-xxl">
+					<div class="row justify-content-lg-center">
+						<div class="col-lg-8 position-relative">
+							<div class="post-details" id="intro">							
+								<div class="entry-content">
+									<div class="all-contents">
+										{{content}}
+									</div>
+
+									<div class="post-footer">
+										{{> social-share }}
+
+										<h6>{{t "Post In:"}}</h6>
+										<div class="entry-category">
+											{{#if tags}}
+												{{#foreach tags}}
+												<a href="{{url}}" class="tag tag-{{comment_id}} {{slug}}">{{name}}</a>
+												{{/foreach}}
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="entry-footer">
+				<div class="container-xxl">
+					<div class="single-post-pagination">
+						<div class="row label-pagination">
+							<div class="previous-post col-6 text-start">
+								<div class="navigation-name">{{t "Previous Posts"}}</div>
+							</div>
+							<div class="next-posts col-6 text-end">
+								<div class="navigation-name">{{t "Next Posts"}}</div>
+							</div>
+						</div>
+                        
+						<div class="row">
+							<div class="previous-post col-6">
+							{{#prev_post}}
+								<a href="{{url}}">
+									<div class="pagination-post-wrapper">
+										<div class="image-wrapper">
+											<img class="post-card-image" src="{{img_url feature_image size="s"}}" loading="lazy" alt="{{title}}" />
+										</div>
+										<div class="content-wrapper">
+											<div class="post-info">
+												<!--./ entry-category -->
+												<div class="post-time">
+													<span><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM - YYYY"}}</time></span>
+												</div>
+												<h4 class="pagi-title">{{title}}</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							{{/prev_post}}
+							</div>
+
+							<div class="next-posts col-6">
+							{{#next_post}}
+								<a href="{{url}}">
+									<div class="pagination-post-wrapper">
+										<div class="image-wrapper">
+											<img class="post-card-image" src="{{img_url feature_image size="s"}}" loading="lazy" alt="{{title}}" />
+										</div>
+										<div class="content-wrapper">
+											<div class="post-info">
+												<!--./ entry-category -->
+												<div class="post-time">
+													<span><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM - YYYY"}}</time></span>
+												</div>
+												<h4 class="pagi-title">{{title}}</h4>
+											</div>
+										</div>
+									</div>
+								</a>
+							{{/next_post}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</div>
+
+	<div class="container-xxl">
+		<div id="comments" class="comments-area comments-area">
+			{{#match @custom.comment_type  "Native Comments"}}
+				{{comments}}
+			{{/match}}			
+			
+			{{#match @custom.comment_type  "Disqus Comments"}}					
+				{{#if @custom.comments_disqus_short_name}}
+					{{#if access}}
+						{{!-- comment-section --}}
+						<div class="post-comment-box mrl-15 mrr-15">
+							<script>
+								(function() { // DON'T EDIT BELOW THIS LINE
+								var d = document, s = d.createElement('script');
+								s.src = 'https://{{@custom.comments_disqus_short_name}}.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+								})();
+							</script>
+							<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+							<div id="disqus_thread" class="disqus_comment_box" ></div>
+						</div>
+
+						{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+						{{#contentFor "scripts"}}
+						<script>
+							var disqus_shortname = "{{@custom.comments_disqus_short_name}}"
+							var disqus_config = function () {
+								this.page.url = "{{url absolute="true"}}";
+								this.page.identifier = "ghost-{{comment_id}}";
+							};
+						</script>
+						{{/contentFor}}
+					{{/if}}
+				{{/if}}
+			{{/match}}
+			
+		</div>
+	</div>
+
+	<div class="related-posts-block">
+		<div class="container-xxl">
+			{{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{comment_id}}+feature_image:-null" limit="4" include="tags"}}
+			{{#if posts}} 
+			<div class="related-wrapper">
+				<div class="row mb-4">
+					<div class="col-md-6">
+						<h3 class="section-title-m text-uppercase">{{>svg/polygonal}}{{t "You might also like"}}</h3>
+					</div>
+					<div class="col-md-6 text-end"></div>
+				</div>
+				<div class="row gx-5">
+					{{#foreach posts  visibility="all"}}
+						{{!-- The tag below includes the markup for each post - partials/post-content.hbs --}}
+						{{> component/recomanded }}
+					{{/foreach}}
+				</div>
+			</div>
+			{{/if}}
+			{{/get}}
+		</div>
+	</div>
+</div>
+
+{{/post}}

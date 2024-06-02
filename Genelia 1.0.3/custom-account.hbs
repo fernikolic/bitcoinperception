@@ -1,0 +1,81 @@
+{{!< default}}
+
+{{!-- Site header - partials/site-header.hbs --}}
+{{> site-header }}
+{{#is "page"}}
+    {{#post}}
+    {{/post}}
+{{/is}}
+<main class="main-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 main-wrapper-content">
+                {{#if @member.paid}}
+                    {{> members/subscriber-information}}
+                {{else if @member}}
+                    {{> members/free-subscriber-information}}
+                    <div class="pricing-section">
+                        <div class="container-wrapper">  
+                            <div class="row justify-content-center">
+                                <div class="col-md-8 text-center">
+                                    <div class="account-box mb-5">
+                                        <h2 class="plan-item mb-3">
+                                            {{t "We’ve got a plan that’s perfect for you"}}
+                                        </h2>
+
+                                        <div class="membership-toogle" data-active-price="yearly">
+                                            <div class="membership-toogle-wrap">
+                                                <button data-price="monthly">{{t "Monthly Billing"}}</button>
+                                                <button data-price="yearly">{{t "Annual Billing"}}</button>
+                                                <a href="https://checkout.opennode.com/p/e14642e1-d563-41c1-a8c2-99048a769e1f" target="_blank"><img style="width:200px;" src="https://app.opennode.com/pay-with-bitcoin.svg"/></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row gx-5 justify-content-center membership-tires-wrapper" data-active-price="yearly">
+                                {{#get "tiers" include="monthly_price,yearly_price,benefits" limit="all"  filter="type:paid"}}
+                                    {{#foreach tiers}}
+                                        {{> members/pricing-tables/price-table}}
+                                    {{/foreach}}
+                                {{/get}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        !function(){
+                            const member_element = document.querySelector(".membership-toogle"),
+                                tires = document.querySelector(".membership-tires-wrapper"),
+                                button = document.querySelectorAll(".membership-toogle button"),
+                                month = document.querySelectorAll(".price [data-price='monthly']"),
+                                year = document.querySelectorAll(".price [data-price='yearly']");
+
+                                month.length > 0 && year.length>0 && button.forEach( (index)=> {
+                                    index.addEventListener("click", ()=> {
+                                        member_element.setAttribute("data-active-price", index.getAttribute("data-price"));
+                                        tires.setAttribute("data-active-price", index.getAttribute("data-price"));
+                                    });
+                                })
+                        }();
+                    </script>
+                {{else}}
+                    {{!-- Member: Redirect to membership --}}
+                    <script>window.location = '{{@site.url}}/membership/';</script>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</main>
+<!--~./ end main wrapper ~-->
+
+{{#if @member.paid}}
+    <section>
+        {{> section/recommended-paid-subscriber heading=(t "The latest posts only for subscribers") }}
+    </section>    
+{{else if @member}}
+    <section>
+        {{> section/recommended-subscriber heading=(t "The latest posts only for subscribers") }}
+    </section>
+{{/if}}

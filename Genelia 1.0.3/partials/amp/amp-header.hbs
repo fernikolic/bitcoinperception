@@ -1,0 +1,30 @@
+<header class="header h-16 flex items-center container justify-between">
+    {{!--
+        - Active Logo in AMP Page
+        - uncomment the lines below.
+        - but in the width and height properties (width="110" height="30")
+        - you have to add exact sizes of your reduced logo
+        - so you do not have problems with amp
+
+        - then comment page name
+    --}}
+
+    <div class="site-branding">
+        {{#if @site.logo}}				
+            <a href="{{@site.url}}">
+                <amp-img src="{{@site.logo}}" alt="{{@site.title}}" width="135" height="35"></amp-img>
+            </a>
+        {{else}}
+            <a href="{{@site.url}}">
+                {{#if @custom.dark_logo}}
+                    <amp-img src="{{@custom.dark_logo}}" alt="{{@site.title}}" class="dark-logo"  width="135" height="35"></amp-img>
+                {{else}}
+                    <amp-img src="{{asset 'images/light-logo.webp'}}" alt="{{@site.title}}" class="dark-logo"  width="135" height="35"></amp-img>
+                {{/if}}
+                <amp-img src="{{asset 'images/logo.webp'}}" alt="{{@site.title}}" class="white-logo"  width="135" height="35"></amp-img>
+            </a>
+        {{/if}}
+    </div>	
+    {{!-- Open Sidenav --}}
+    <button class="hamburgermenu text-gray-500" on="tap:sidenav.open" tabindex="0" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+</header>

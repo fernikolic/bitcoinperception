@@ -1,0 +1,33 @@
+<!--~~~~~ Start Widget Location ~~~~~-->
+<div class="col-lg-4 col-md-6">
+	<aside class="widget bt-location-widget">
+		<div class="widget-content">
+			<!-- f-logo -->
+			<div class="f-logo">
+				{{#if @site.logo}}				
+					<a href="{{@site.url}}">
+						<img src="{{@site.logo}}" alt="{{@site.title}}" width="135" height="35" />
+						<img src="{{asset 'images/hero_element_1.webp'}}" alt="Element" width="35" class="footer-elements">
+					</a>
+				{{else}}
+					<a href="{{@site.url}}">
+						{{#if @custom.dark_logo}}
+							<img src="{{@custom.dark_logo}}" alt="{{@site.title}}" class="dark-logo"  width="135" height="35" />
+						{{else}}
+							<img src="{{asset 'images/light-logo.webp'}}" alt="{{@site.title}}" class="dark-logo"  width="135" height="35" />
+						{{/if}}
+						<img src="{{asset 'images/logo.webp'}}" alt="{{@site.title}}" class="white-logo"  width="135" height="35" />
+						<img src="{{asset 'images/hero_element_1.webp'}}" alt="Element" width="35" height="35" class="footer-elements">
+					</a>
+				{{/if}}
+			</div>
+
+			<div class="info-box">
+				{{#if text }}
+				<p id="about-us-content">{{{ text }}}</p>
+				{{/if}}
+			</div>
+		</div>
+	</aside>
+</div>
+<!--~./ end location widget ~-->

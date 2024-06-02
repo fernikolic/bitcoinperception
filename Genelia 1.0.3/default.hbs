@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/bootstrap.min.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/tocbot.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+
+    {{!-- Dynamic Style --}}
+    <style>
+        :root {
+            --theme-color: {{@site.accent_color}};
+            --theme-shadow-color: {{@site.accent_color}}1f;
+            --header-logo-color: #000;
+            --header-bg: #f6f6f6;
+            --header-color: #1e2633;
+            --heading-color: #1e2633;
+            --hero-button: #1e2633;
+            --section-padding-lg: 100px 0;
+            --section-padding-md: 75px 0;
+            --section-padding-sm: 45px 0;
+            --body-font: 'Inter', sans-serif;
+            --heading-font: 'Inter', sans-serif;
+        }
+        @media only screen and (max-width: 767px) {
+            :root {
+                --section-padding-lg: 75px 0;
+            }
+        }
+    </style>
+
+    <style>
+        .gh-toc > .toc-list {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .gh-toc .is-active-link::before {
+            background-color: var(--ghost-accent-color); /* Defines TOC accent color based on Accent color set in Ghost Admin */
+        } 
+</style>
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+
+</head>
+
+{{#if @custom.dark_layout }}
+<body class="{{body_class}} dark-layout">
+{{else}}
+<body class="{{body_class}} default-layout">
+{{/if}}
+    {{!-- For dark background you need to change the body class, dark:bg-dark-wrap and normal:bg-white --}}
+    <div class="site-content">
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        {{{body}}}
+
+<!-- Custom Tweets Section -->
+<div class="custom-tweets-container">
+  <h2>Trusted by Researchers, Media and Comms Professionals</h2>
+  <div class="tweets-grid" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <!-- Existing Tweet 1 Embed Code -->
+    <div class="tweet" style="flex: 1 0 30%; margin-bottom: 20px;">
+      <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">Here&#39;s bitcoin&#39;s negative news coverage quantified, via <a href="https://twitter.com/BTCPerception?ref_src=twsrc%5Etfw">@BTCPerception</a> <a href="https://t.co/nfWJ2j3OTX">pic.twitter.com/nfWJ2j3OTX</a></p>&mdash; Tuur Demeester (@TuurDemeester) <a href="https://twitter.com/TuurDemeester/status/1749104052346999040?ref_src=twsrc%5Etfw">January 21, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <!-- Existing Tweet 2 Embed Code -->
+    <div class="tweet" style="flex: 1 0 30%; margin-bottom: 20px;">
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">If you&#39;re working in the <a href="https://twitter.com/hashtag/bitcoin?src=hash&amp;ref_src=twsrc%5Etfw">#bitcoin</a> industry in PR or marketing, check out the <a href="https://twitter.com/BTCPerception?ref_src=twsrc%5Etfw">@BTCPerception</a> dashboard. It helps me quickly tell if a curious reporter is reaching out in good faith or not. <a href="https://t.co/owfbH3GtIA">https://t.co/owfbH3GtIA</a></p>&mdash; Phil Geiger (@phil_geiger) <a href="https://twitter.com/phil_geiger/status/1756093576545443918?ref_src=twsrc%5Etfw">February 9, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <!-- Existing Tweet 3 Embed Code -->
+    <div class="tweet" style="flex: 1 0 30%; margin-bottom: 20px;">
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Found a cool dashboard that tracks the perception of bitcoin.<br><br>You can gauge whether articles on any given day lean positive, negative or neutral, track bias by outlets and individual reporters, and more.<br><br>Really useful data visualization, check it out 👇<a href="https://twitter.com/BTCPerception?ref_src=twsrc%5Etfw">@BTCPerception</a> <a href="https://t.co/j5ih64VRSH">pic.twitter.com/j5ih64VRSH</a></p>&mdash; Joe Consorti ⚡ (@JoeConsorti) <a href="https://twitter.com/JoeConsorti/status/1755711589234188433?ref_src=twsrc%5Etfw">February 8, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <!-- Existing Tweet 4 Embed Code -->
+    <div class="tweet" style="flex: 1 0 30%; margin-bottom: 20px;">
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">This is an amazing idea for a <a href="https://twitter.com/hashtag/Bitcoin?src=hash&amp;ref_src=twsrc%5Etfw">#Bitcoin</a> Twitter account. <br><br>Everyone follow <a href="https://twitter.com/BTCPerception?ref_src=twsrc%5Etfw">@BTCPerception</a> NOW and RT please 🙏🧡 <a href="https://t.co/MdBoLHOI6y">https://t.co/MdBoLHOI6y</a></p>&mdash; Niko Jilch ⚡️ (@NikoJilch) <a href="https://twitter.com/NikoJilch/status/1745495125432635892?ref_src=twsrc%5Etfw">January 11, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <!-- New Tweet 5 Embed Code -->
+    <div class="tweet" style="flex: 1 0 30%; margin-bottom: 20px;">
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">A telling visual from <a href="https://twitter.com/BTCPerception?ref_src=twsrc%5Etfw">@BTCPerception</a> reveals the extent of media bias in reporting Bitcoin adoption in El Salvador. <br><br>Reds = negative MSM reporting<br><br>Check el salvador (from:woonomic) in your X search if you value data over propaganda<br><br>Full report <a href="https://t.co/krSqzHNN2K">https://t.co/krSqzHNN2K</a> <a href="https://t.co/KTzjg6Q0Dd">pic.twitter.com/KTzjg6Q0Dd</a></p>&mdash; Daniel Batten (@DSBatten) <a href="https://twitter.com/DSBatten/status/1760053088143208818?ref_src=twsrc%5Etfw">February 20, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <!-- New Tweet 6 Embed Code -->
+    <div class="tweet" style="flex: 1 0 30%; margin-bottom: 20px;">
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/BTCPerception?ref_src=twsrc%5Etfw">@BTCPerception</a> has a cool dashboard where you can track the media perception of Bitcoin and how it evolves.<br><br>This is last 30 days. <a href="https://t.co/SI723LVTA3">https://t.co/SI723LVTA3</a></p>&mdash; hodlonaut 80 IQ 13%er 🌮⚡🔑 🐝 (@hodlonaut) <a href="https://twitter.com/hodlonaut/status/1756673204297363860?ref_src=twsrc%5Etfw">February 11, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+  </div>
+</div>
+
+
+        {{!-- The footer at the very bottom of the screen --}}
+        {{> footer-content}}
+    </div>
+
+    {{!-- search-popup --}}
+    {{> search-popup}}
+    
+    <a href='#top' id='scroll-top' class='topbutton btn-hide'>
+        <svg class="progress-circle" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="cuurentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="18" y1="11" x2="12" y2="5"></line>
+            <line x1="6" y1="11" x2="12" y2="5"></line>
+        </svg>
+    </a>
+
+    {{!-- Ajax Load More required variables --}}
+    <script>
+        var serachContentApi = "{{@site.url}}/ghost/api/v3/content/posts/?key=" + window.contentApiKey + "&limit=all&fields=id,title,excerpt,feature_image,custom_excerpt,url,published_at&formats=plaintext&include=tags";
+        
+        var pagination_next_page_number       = '{{ pagination.next }}',
+            pagination_available_pages_number = '{{ pagination.pages }}';
+    </script>
+
+    {{!-- jQuery, required for fitvids --}}
+    <script src="{{asset "js/jquery.js"}}"></script>
+    <script src="{{asset "js/plugin.js"}}"></script>
+    <script src="{{asset "js/fslightbox.js"}}"></script>
+    <script src="{{asset "js/imagesloaded.pkgd.min.js"}}"></script>
+    <script src="{{asset "js/isotope.pkgd.min.js"}}"></script>
+    <script src="{{asset "js/packery-mode.pkgd.min.js"}}"></script>
+    <script src="{{asset "js/tocbot.min.js"}}"></script>
+
+    {{!-- Fitvids (for responsive video embeds), infinite scroll, floating header, and gallery card support --}}
+    <script src="{{asset "js/main.js"}}"></script>
+
+    {{!-- Scripts for Members subscription --}}
+    <script>
+        // Parse the URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Give the parameter a variable name
+        var action = getParameterByName('action');
+        var success = getParameterByName('success');
+        var layouts = getParameterByName('layout');
+
+        // Show 505 Error Page
+        if( layouts === '505' ) {
+            document.getElementById("error-404").src = '/assets/images/error-505.webp';
+        }
+
+        $(document).ready(function () {
+            if (action == 'subscribe' && (success === null || success === 'true')) {
+                $('body').addClass('subscribe-success');
+            }
+
+            if (action == 'subscribe' && success === 'false') {
+                $('body').addClass('subscribe-failure');
+            }
+
+            $('.subscribe-notification .subscribe-close-button').click(function () {
+                $('.subscribe-notification').addClass('close');
+            });
+
+            // Reset form on opening subscrion overlay
+            $('.subscribe-btn').on('click', function() {
+                $('.subscribe-overlay form').removeClass();
+                $('.subscribe-email').val('');
+            });
+        });
+
+        function setCookie(cname, cvalue) {
+            const d = new Date();
+            d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
+            let expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        
+        function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+            }
+            return "";
+        }
+
+        function delete_cookie(name) {
+            document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+
+
+        var get_layout = getCookie('layout_mode');
+        if( get_layout == 'dark' || layouts == 'dark' ) {
+            document.querySelector('.switcher').classList.add('active');
+            document.querySelector('body').classList.add('dark-layout');
+        } else {
+            document.querySelector('.switcher').classList.remove('active');
+            document.querySelector('body').classList.remove('dark-layout');
+        }
+
+    </script>
+    {{! Initialize Tocbot after you load the script }}
+    <script>
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.post-details',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3, h4',
+        });
+    </script>
+
+    {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+    {{{block "scripts"}}}
+    
+
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
+
+</body>
+</html>

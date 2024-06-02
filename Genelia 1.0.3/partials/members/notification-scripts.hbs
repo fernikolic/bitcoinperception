@@ -1,0 +1,6 @@
+<script>
+    var serachContentApi = "{{@site.url}}/ghost/api/v3/content/posts/?key=" + window.contentApiKey + "&limit=all&fields=id,title,excerpt,feature_image,custom_excerpt,url,published_at&formats=plaintext&include=tags";
+    var pagination_next_page_number = '{{ pagination.next }}',
+        pagination_available_pages_number = '{{ pagination.pages }}';
+
+</script>

@@ -1,0 +1,46 @@
+<footer class="site-footer">
+	{{#if @custom.footer_subscribe }}
+	<div class="footer-top mt-5 pt-5 pb-4">
+		<div class="container-xxl">
+			<div class="row justify-content-center">
+				<div class="col-lg-7 text-center">
+					{{> footer/subscribe-widget }}
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+	<div class="footer-widget-area">
+		<div class="container-xxl">
+			<div class="row">
+				{{> footer/about-widget text=(t "" br="<br>") }}
+				{{> footer/features-widget title=(t "Features") for="features" }}
+				{{> footer/features-widget title=(t "Members") for="member" }}
+				{{> footer/features-widget title=(t "About") for="about"}}
+			</div>
+		</div>
+	</div>
+	<!--~./ end footer widgets area ~-->
+
+	<div class="footer-bottom-area">
+		<div class="container-xxl">
+			<div class="row">
+				<div class="col-md-7 bottom-block">
+					<div class="text-center text-lg-end">
+						{{> component/social }}
+					</div>
+				</div>
+				<div class="col-md-5 bottom-block">
+					<div class="copyright-text text-center text-lg-start">
+						{{#if @custom.copyright_text}}
+							<p>{{@custom.copyright_text}}</p>
+						{{else}}
+							<p><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}. All rights reserved.</p>
+						{{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--~./ end footer bottom area ~-->
+</footer>

@@ -1,0 +1,48 @@
+{{!< default}}
+
+{{!-- Site header - partials/site-header.hbs --}}
+{{>site-header }}
+
+{{!-- Archive Page --}}
+<div class="main-wrapper">
+	<div class="container-xxl">
+		<div class="row justify-content-lg-center">
+			<div class="col-lg-8">
+				{{!-- The main content area --}}
+				<div class="site-main">
+                    <div class="entry-header text-center">
+                        <h1 class="global-title mb-3 mt-0">{{t "Archive"}}</h1>
+                        <div class="archive__excerpt mb-4">
+                            {{#get "posts"}}
+                            {{t "Browse the complete archive of {total} posts." total=pagination.total}}
+                            {{/get}}
+                        </div>
+                    </div>
+
+                    <div class="archive js-post-feed">
+                        {{#get "posts" limit="all" order="published_at desc"}}
+                        <article class="content-wrap">
+                            {{#foreach posts visibility="all"}}
+
+                            <div class="archive-post-wrap post-year-{{date format="Y"}} js-post-card"> 
+                            <div class="archive-post-label m-t m-b-sm fw-600">{{date format="YYYY"}}</div>
+                                <article class="archive-post">
+                                    <time datetime="{{date published_at format="YYYY-MM-DD"}}"
+                                    class="text-acc-3">{{date published_at format="DD MMM YYYY"}}
+                                    </time>
+
+                                    <h2 class="archive-post__title fw-500 m-0 text-acc-2">
+                                    <a class="archive-post__link flex-1" href="{{url}}">{{title}}</a>
+                                    </h2>
+                                </article>
+                            </div>
+                            {{/foreach}}
+                        </article>
+                        {{/get}}
+                    </div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

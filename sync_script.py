@@ -4,14 +4,24 @@ import os
 from github import Github
 
 # Configuration
-GHOST_API_URL = os.getenv('GHOST_API_URL') + '/ghost/api/v3/content/posts/'
+GHOST_API_URL = os.getenv('GHOST_API_URL')
 GHOST_API_KEY = os.getenv('GHOST_API_KEY')
 REPO_NAME = os.getenv('REPO_NAME')
 GH_TOKEN = os.getenv('GH_TOKEN')
 CONTENT_FILE = 'content.json'
 
+# Debugging: Print the environment variables
+print(f'GHOST_API_URL: {GHOST_API_URL}')
+print(f'GHOST_API_KEY: {GHOST_API_KEY}')
+print(f'REPO_NAME: {REPO_NAME}')
+print(f'GH_TOKEN: {"Exists" if GH_TOKEN else "Not Found"}')
+
+# Check if GHOST_API_URL and GHOST_API_KEY are set
+if not GHOST_API_URL or not GHOST_API_KEY:
+    raise ValueError("GHOST_API_URL and GHOST_API_KEY must be set")
+
 # Fetch posts from Ghost
-response = requests.get(f'{GHOST_API_URL}?key={GHOST_API_KEY}')
+response = requests.get(f'{GHOST_API_URL}/ghost/api/v3/content/posts/?key={GHOST_API_KEY}')
 posts = response.json()
 
 # Save posts to a file

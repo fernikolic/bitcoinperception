@@ -1,0 +1,70 @@
+{{!< no-header-footer}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+<div class="memeber-login-wrapper">
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<div class="col-lg-6 fxt-bg-color">
+				<div class="from-wrapper">
+					<div class="branding-block">
+						{{> branding }} {{!--Site Branding branding.hbs partial to generate branding content --}}
+					</div>
+
+					{{!-- The main content area --}}
+					<div class="member-form">
+						<h1 class="global-title-sm mb-4">{{title}}</h1>
+
+						<form class="row" action="{{@custom.contact_form_endpoint}}" method="POST" id="contact-form">
+							
+							<div class="col-lg-12">
+								<div class="form-group">
+									<div class="input-wrapper">
+										<input name="user" type="text" class="form-control" placeholder="{{ t "Your Name" }}" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-wrapper">
+										<input type="email" name="email" class="form-control" placeholder="{{ t "Email Address" }}" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-wrapper">
+										<input name="subject" type="text" class="form-control" placeholder="{{ t "Subject" }}" required>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-12">
+								<div class="form-group">
+									<div class="input-text-form">
+										<textarea class="form-control" name="message" cols="5" rows="5" placeholder="{{ t "Message" }}" equired></textarea>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-lg-12">
+								<div class="signin-btn mt-3">
+									<button type="submit" class="btn button-contact mt-20">{{t "Send Message"}}</button>
+								</div>
+							</div>
+						</form>
+
+						{{> component/social }}
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 d-none d-lg-block">
+				{{#if feature_image}}
+				<div class="fxt-bg-img" style="background-image: url({{img_url feature_image size="m"}});"></div>
+				{{else}}
+				<div class="fxt-bg-img" style="background-image: url({{@site.cover_image}});"></div>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</div>
+{{/post}}

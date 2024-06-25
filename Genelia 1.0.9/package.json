@@ -1,0 +1,149 @@
+{
+	"name": "genelia",
+	"version": "1.0.0",
+	"description": "A clean, minimal ghost theme for the Ghost publishing platform",
+	"main": "index.js",
+	"author": {
+		"name": "softhopper",
+		"email": "softhopperbd@gmail.com",
+		"url": "https://themeforest.net/user/softhopper"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"global": "^4.4.0",
+		"gscan": "^3.6.0"
+	},
+	"engines": {
+        "ghost": ">=5.0.0"
+	},
+	"screenshots": {
+	    "desktop": "assets/screenshot-desktop.jpg",
+	    "mobile": "assets/screenshot-mobile.jpg"
+	},
+	"gpm": {
+	    "type": "theme",
+	    "categories": [
+	        "Minimal",
+	        "Magazine"
+	    ]
+	},
+	"keywords": [
+	    "ghost",
+	    "theme",
+	    "ghost-theme"
+	],
+	"config": {
+	    "posts_per_page": 3,
+		"card_assets": true,
+	    "image_sizes": {
+	        "xxs": {
+	            "width": 42
+	        },
+	        "xs": {
+	            "width": 100
+	        },
+	        "ss": {
+	            "width": 160
+	        },      
+			"s": {
+	            "width": 360
+	        },	        
+			"sm": {
+	            "width": 540
+	        },		
+			"sl": {
+	            "width": 630
+	        },
+	        "m": {
+	            "width": 820
+	        },
+	        "l": {
+	            "width": 1000
+	        },
+	        "xl": {
+	            "width": 2000
+	        }
+	    },
+		"custom": {
+			"dark_logo": {
+				"type": "image"
+			},
+			"header_serach_type": {
+				"type": "select",
+				"options": [
+					"Native",
+					"Theme Search",
+					"None"
+				],
+				"default": "Native"
+			},	
+			"layout_switcher": {
+				"type": "boolean",
+				"default": true
+			},			
+			"dark_layout": {
+				"type": "boolean",
+				"default": false
+			},	
+			"footer_subscribe": {
+				"type": "boolean",
+				"default": true
+			},
+			"contact_form_endpoint": {
+				"type": "text"
+			},				
+			"copyright_text": {
+				"type": "text"
+			},		
+			"hero_section": {
+				"type": "boolean",
+				"default": true,
+				"group": "homepage"
+			},	
+			"hero_heading_text": {
+				"type": "text",
+				"default": "Expert insights on Bitcoin's public sentiment and media presence.",
+				"group": "homepage"
+			},					
+			"featured_posts_section": {
+				"type": "boolean",
+				"default": true,
+				"group": "homepage"
+			},
+			"top_tags_section": {
+				"type": "select",
+				"options": [
+					"Top Tags - Top Author",
+					"Top Tags",
+					"Top Author",
+					"None"
+				],
+				"group": "homepage",
+				"default": "Top Tags - Top Author"
+			},									
+			"recommended_post_section": {
+				"type": "boolean",
+				"default": true,
+				"group": "homepage"
+			},				
+			"recommended_tag_slug": {
+				"type": "text",
+				"group": "homepage"
+			},			
+			"comment_type": {
+				"type": "select",
+				"options": [
+					"Native Comments",
+					"Disqus Comments",
+					"None"
+				],
+				"default": "Native Comments",
+				"group": "post"
+			},
+			"comments_disqus_short_name": {
+				"type": "text",
+				"group": "post"
+			}			
+		}
+	}
+}

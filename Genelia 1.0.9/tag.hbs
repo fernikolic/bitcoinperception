@@ -1,0 +1,70 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- Site header - partials/site-header.hbs --}}
+{{>site-header }}
+
+<main class="main-wrapper">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-lg-12">
+				<div class="row justify-content-center">
+					<div class="col-md-10">
+						<div class="row text-center justify-content-center mb-2">
+							{{#tag}}
+							<div class="col-7 col-md-3">
+								{{#if feature_image}}
+									<img class="gobal-round-image" src="{{img_url feature_image size="s"}}" alt="{{name}}" />
+								{{/if}}
+							</div>  
+						</div>
+
+						<div class="row text-center justify-content-center mt-4">
+							<div class="author-header-content col-md-9">
+								<div class="tag-blocks d-flex align-items-center justify-content-center mb-2" style="color: {{accent_color}};">
+									<div class="tag-inner">
+										<h2 class="global-title" style="color: {{accent_color}};">{{name}}</h2>
+									</div>
+									<div class="tag-inner">
+										( {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}} )
+									</div>
+								</div>
+
+								<div class="tag-blocks">
+									<p class="author-bio">
+										{{#if description}}
+										{{description}}
+										{{/if}}
+									</p>
+								</div>
+							</div>                          
+							{{/tag}}
+						</div>
+					</div>
+				</div>             				
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-lg-12 mt-5">
+				{{!-- The main content area --}}
+				<div class="row gx-5" id="post-masonry">
+					{{#foreach posts}}
+						{{!-- The tag below includes the markup for each post - partials/post-content.hbs --}}
+						<div class="col-lg-4 post-loop">
+							{{> "post-content"}}
+						</div>
+					{{/foreach}}
+				</div>
+				<div class="row">
+					<div class="col-12 text-center">
+						{{pagination}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

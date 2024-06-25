@@ -1,0 +1,86 @@
+
+<div class="genelia-nav-wrapper"> 
+    {{#if isSecondary}}
+        {{#match menu "=" "features"}}
+            <ul class="nav" role="menu">
+                {{#foreach navigation limit="4"}}
+                    <li class="nav-{{slug}}" role="menuitem">
+                        <a href="{{url absolute="true"}}">{{label}}</a>
+                    </li>
+                {{/foreach}}
+            </ul>        
+        {{/match}}
+
+        {{#match menu "=" "member"}}
+            <ul class="nav" role="menu">
+                {{#foreach navigation limit="4" from="5"}}
+                    <li class="nav-{{slug}}" role="menuitem">
+                        <a href="{{url absolute="true"}}">{{label}}</a>
+                    </li>
+                {{/foreach}}
+            </ul>        
+        {{/match}}        
+        
+        {{#match menu "=" "about"}}
+            <ul class="nav" role="menu">
+                {{#foreach navigation limit="4" from="9"}}
+                    <li class="nav-{{slug}}" role="menuitem">
+                        <a href="{{url absolute="true"}}">{{label}}</a>
+                    </li>
+                {{/foreach}}
+            </ul>        
+        {{/match}}
+    {{else}}  
+    <ul class="nav desktop-nav">
+        <!-- Loop through the navigation items -->
+        {{#foreach navigation limit="4"}}
+        <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+        <!-- End the loop -->
+
+        <li class="more-nav-elements">
+            <a href="#" class="more-btn">
+                <span>{{t "More"}}</span>
+                <svg role="img" viewBox="0 0 20 4" xmlns="http://www.w3.org/2000/svg"><path d="M2 4A2 2 0 102.001.001 2 2 0 002 4zm8 0a2 2 0 10.001-3.999A2 2 0 0010 4zm8 0a2 2 0 10.001-3.999A2 2 0 0018 4z"></path></svg>
+            </a>
+            <ul class="auto-nav-more-list">
+                {{#foreach navigation from="5"}}
+                    <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+                {{/foreach}}
+            </ul>
+      </li>
+    </ul>
+
+    <div class="mobile-sidebar-menu sidebar-menu">
+		<div class="overlaybg"></div>
+        <div class="offcanvas">
+            <div class="navigation">
+                <ul class="mainmenu">
+                    {{#foreach navigation}}
+                        <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+                    {{/foreach}}
+                    
+                    {{#if @site.members_enabled}}
+                        {{#unless @member}}
+                        {{else}}
+                            <li class="nav-signin">
+                                <a href="{{@site.url}}/account/">{{t "Account"}}</a>
+                            </li>
+                        {{/unless}}
+                    {{/if}}
+                                    
+                    <li class="nav-signin">
+                        {{#if @site.members_enabled}}
+                            {{#unless @member}}
+                                <a href="#/portal/signin" data-portal="signin">{{t "Sign In"}}</a>
+                            {{else}}
+                                <a href="javascript:" data-members-signout>{{t "Sign Out"}}</a>
+                            {{/unless}}
+                        {{/if}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+	</div>
+    {{/if}}
+</div>

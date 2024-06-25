@@ -1,0 +1,20 @@
+{{> header-background }}
+	<div class="desktop-logo d-lg-block">
+		<div class="site-branding">
+			{{#if @site.logo}}				
+				<a href="{{@site.url}}">
+					<img src="{{@site.logo}}" alt="{{@site.title}}" width="135" height="35" />
+				</a>
+			{{else}}
+				<a href="{{@site.url}}">
+					{{#if @custom.dark_logo}}
+						<img src="{{@custom.dark_logo}}" alt="{{@site.title}}" class="dark-logo" width="135" height="35"/>
+					{{else}}
+						<img src="{{asset 'images/light-logo.webp'}}" alt="{{@site.title}}" class="dark-logo" width="135" height="35" />
+					{{/if}}
+					<img src="{{asset 'images/logo.webp'}}" alt="{{@site.title}}" class="white-logo"  width="135" height="35" />
+				</a>
+			{{/if}}
+		</div><!-- /.site-branding -->		
+	</div>
+</div><!-- /.header-logo-area -->

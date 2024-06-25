@@ -1,0 +1,19 @@
+routes:
+  /press-releases/:
+    controller: channel
+    filter: 'tag:press-releases'
+    template: custom-press
+
+  /reports/:
+    controller: channel
+    filter: 'tag:reports'
+    template: custom-press
+
+collections:
+  /:
+    permalink: /{slug}/
+    template: index
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

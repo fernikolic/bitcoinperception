@@ -1,0 +1,84 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- Site header - partials/site-header.hbs --}}
+{{> site-header }}
+
+<main class="main-wrapper">
+	 {{#author}}
+	<div class="container-xxl">
+		<div class="row justify-content-between">
+			<div class="col-lg-12 main-wrapper-content">
+				<div class="cus-membership-section mb-5">
+				    <div class="container-wrapper">
+						{{#if cover_image}}
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="cover-elemets" style="background-image: url({{ cover_image}});"></div>
+							</div>
+						</div>
+						{{/if}}
+				        <div class="row justify-content-center">
+							<div class="col-md-7">
+								<div class="row text-center">
+									<div class="author-images-header col-md-12 mb-4">
+	                                    {{#if profile_image}}
+											<img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
+										{{/if}}
+									</div>  
+
+									<div class="author-header-content col-md-12">
+										<div class="tag-inner">
+											<h2 class="author-name mt-2">{{name}}</h2>
+										</div>
+										<div class="tag-blocks">
+											<ul class="author-meta justify-content-center">
+												{{#if website}}
+													<li class="author-social-link"><a href="{{website}}" target="_blank" rel="noopener">{{> svg/link }} {{t "Website"}}</a></li>
+												{{/if}}
+												{{#if twitter}}
+													<li class="author-social-link"><a href="{{twitter_url}}" target="_blank" rel="noopener">{{> svg/twitter }}  {{t "Twitter"}}</a></li>
+												{{/if}}
+												{{#if facebook}}
+													<li class="author-social-link"><a href="{{facebook_url}}" target="_blank" rel="noopener">{{> svg/facebook }} {{t "Facebook"}}</a></li>
+												{{/if}}
+											</ul>
+											{{#if bio}}
+												<p class="author-bio mt-4">{{bio}}</p>
+											{{/if}}
+											{{#if location}}
+												<P class="author-location">{{> svg/location}} {{location}} - {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</P>
+											{{/if}}
+										</div>
+									</div>    
+								</div>
+							</div>
+				        </div>
+				    </div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	{{/author}}
+
+	<div class="container-xxl mt-5">	
+		<div class="row gx-5" id="post-masonry">
+			{{#foreach posts}}
+				{{!-- The tag below includes the markup for each post - partials/post-content.hbs --}}
+				<div class="col-lg-4 post-loop">
+					{{> "post-content"}}
+				</div>
+			{{/foreach}}
+			{{!-- <div class="col-12">
+				<div class="card-columns">
+				</div>
+			</div> --}}
+		</div>
+		<div class="row">
+			<div class="col-12 text-center mt-4">
+				{{pagination}}
+			</div>
+		</div>
+	</div>
+</main>

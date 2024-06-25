@@ -1,0 +1,83 @@
+{{!-- page header --}}
+<div class="cus-membership-section">
+    <div class="container-wrapper">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="post text-center style-four">
+                    <div class="entry-header">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="account-box mb-5">
+                                    <div class="heading-content with-images-heading">
+                                        <div class="parent-heading-pattern with-images">
+                                            {{#if @member.avatar_image}}
+                                                <img src="{{@member.avatar_image}}" alt="{{@member.name}}" class="author-profile-image">
+                                            {{/if}}
+                                        </div>  
+                                        <div class="author-header-content mrb-60">
+                                            <h1 class="global-title-sm mb-4">{{t "Your account"}}</h1>
+                                            <p class="author-bio">
+                                                {{{t "Hey <strong>{member}</strong>! You have an active <strong>{title}</strong> account with access to all areas. Get in touch if have any problems or need some help getting things updated, and thanks for subscribing." member=@member.name title=@site.title}}}
+                                            </p>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>             
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+<div class="paying-subscriber-card">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="full-membership-content">
+                {{#if @member.paid}}
+                {{!-- Paid member: Show the following information of the subscriber --}}
+                <div class="account-box">
+                    <h2 class="account-box-title mb-4">{{t "Account Details"}}</h2>
+
+                    {{#foreach @member.subscriptions}}
+                                            
+                    <div class="payer-information-box">
+                        <ul class="payer-information row">
+                            <li class="col-md-6"><span class="label">{{t "Email address:"}}</span> <strong>{{@member.email}}</strong></li>
+                            <li class="col-md-6"><span class="label">{{t "Card:"}}</span>  <strong>**** **** **** {{default_payment_card_last4}}</strong></li>
+                            <li class="col-md-6"><span class="label">{{t "Your plan:"}}</span> <strong>{{price plan}}/{{plan.interval}}</strong></li>
+                            <li class="col-md-6"><span class="label">{{t "Next bill date:"}}</span> <strong>{{date current_period_end format="DD MMMM YYYY"}}</strong></li>
+                            <li class="col-md-6"><span class="label">{{t "Status:"}}</span> <strong>{{status}}</strong></li>
+                        </ul>
+
+                        <div class="subscription-option">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="cancel-subscription">
+                                        {{cancel_link class="cancel-link"}}
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mem-edit-bill text-end">
+                                        <a href="javascript:" class="account-button mr-3" data-portal="account">{{t "Account settings"}}</a>
+                                        <a class="billing-info-edit" href="javascript:" data-members-edit-billing>{{t "Edit billing info"}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{#if cancel_at_period_end}}
+                    <div class="subscription-message mt-5">
+                        <div class="alert alert-success">
+                            <strong class="subscription-expiration-warning">{{t "Your subscription will expire on"}} {{date current_period_end format="DD MMM YYYY"}}.</strong> {{t "If you change your mind in the mean time you can turn auto-renew back on to continue your subscription."}}
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{/foreach}}
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

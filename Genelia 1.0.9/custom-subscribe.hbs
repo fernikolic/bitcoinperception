@@ -1,0 +1,134 @@
+{{!< no-header-footer}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{#if @member.paid}}
+    {{!-- Logged in: Redirect home --}}
+    <script>window.location = '{{@site.url}}';</script>
+{{else if @member}}
+    {{!-- Member: Redirect to Subscribe --}}
+    <script>window.location = '{{@site.url}}/account/';</script>
+{{else}}
+    {{#if page}}
+        {{#post}}
+        <div class="memeber-login-wrapper">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 fxt-bg-color">
+                        <div class="from-wrapper">
+                            <div class="branding-block">
+                                {{> branding }} {{!--Site Branding branding.hbs partial to generate branding content --}}
+                            </div>
+
+                            {{!-- The main content area --}}
+                            <div class="member-form">
+                                <h1 class="global-title-sm mb-4">{{t "Subscribe"}}</h1>
+
+
+                                <form data-members-form="subscribe" data-members-autoredirect="false">
+                                    <div class="subscribe-form mb-4">
+                                        <div class="single-input mrb-25">
+                                            <span class="icon_mail">
+                                                <i class="far fa-user"></i>
+                                            </span>
+                                            <input data-members-name class="form-control" type="name" required placeholder="{{t "Your name"}}">
+                                        </div>
+                                        <div class="single-input mrb-15">
+                                            <span class="icon_mail">
+                                                <i class="far fa-envelope"></i>
+                                            </span>
+                                            <input data-members-email class="form-control" type="email" required placeholder="{{t "Enter your email"}}">
+                                        </div>
+
+                                        <div class="message-text">
+                                            <div class="message-success">
+                                                {{{t "Processing your application"}}}
+                                            </div>
+                                            <div class="message-error">
+                                                {{t "There was an error sending the email"}}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="d-flex">
+                                            <button class="button" type="submit" class="btn btn-sign">
+                                                <span class="button-text">{{t "Subscribe"}}</span>
+                                                <span class="button-loader">{{t "Loading.."}}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                {{> component/social }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block">
+                        {{#if feature_image}}
+                        <div class="fxt-bg-img" style="background-image: url({{img_url feature_image size="m"}});"></div>
+                        {{else}}
+                        <div class="fxt-bg-img" style="background-image: url({{@site.cover_image}});"></div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/post}}
+    {{else}}
+        <div class="memeber-login-wrapper">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 fxt-bg-color">
+                        <div class="from-wrapper">
+                            <div class="branding-block">
+                                {{> branding }} {{!--Site Branding branding.hbs partial to generate branding content --}}
+                            </div>
+
+                            {{!-- The main content area --}}
+                            <div class="member-form">
+                                <h1 class="global-title mb-4">{{t "Subscribe"}}</h1>
+
+                                <form data-members-form="subscribe" data-members-autoredirect="false">
+                                    <div class="subscribe-form mb-4">
+                                        <div class="single-input mrb-25">
+                                            <span class="icon_mail">
+                                                <i class="far fa-user"></i>
+                                            </span>
+                                            <input data-members-name class="form-control" type="name" required placeholder="{{t "Your name"}}">
+                                        </div>
+                                        <div class="single-input mrb-15">
+                                            <span class="icon_mail">
+                                                <i class="far fa-envelope"></i>
+                                            </span>
+                                            <input data-members-email class="form-control" type="email" required placeholder="{{t "Enter your email"}}">
+                                        </div>
+
+                                        <div class="message-text">
+                                            <div class="message-success">
+                                                {{{t "Processing your application"}}}
+                                            </div>
+                                            <div class="message-error">
+                                                {{t "There was an error sending the email"}}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="d-flex">
+                                            <button class="button" type="submit" class="btn btn-sign">
+                                                <span class="button-text">{{t "Subscribe"}}</span>
+                                                <span class="button-loader">{{t "Loading.."}}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                {{> component/social }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="fxt-bg-img" style="background-image: url({{@site.cover_image}});"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+{{/if}}

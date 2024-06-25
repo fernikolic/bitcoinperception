@@ -1,0 +1,62 @@
+{{!-- page header --}}
+<div class="cus-membership-section">
+    <div class="container-wrapper">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="entry-header text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 mb-2">
+                            <div class="account-box mb-5">          
+                                <div class="heading-content with-images-heading">
+                                    <div class="parent-heading-pattern with-images">
+                                        {{#if @member.avatar_image}}
+                                            <img src="{{@member.avatar_image}}" alt="{{@member.name}}" class="author-profile-image">
+                                            {{>svg/avatar-two }}
+                                        {{/if}}
+                                    </div>  
+                                    <div class="author-header-content mb-5">
+                                        <h1 class="global-title mb-4">{{t "Your account"}}</h1>
+                                        <p class="author-bio author-bio">
+                                            {{{t "Hey <strong>{name}</strong>! You are subscribed for free updates from {title}, but doesn't have a paid subscription to unlock full access." title=@site.title name=@member.name}}}            
+                                        </p>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+<div class="paying-subscriber-card">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="full-membership-content mb-5">
+                <div class="account-box">
+                    <h2 class="account-box-title mb-3">{{t "Account Info"}}:</h2>
+                    <div class="payer-information-box">
+                        <ul class="payer-information row free-subscriber">
+                            <li class="col-md-6"><span class="label">{{t "Email address:"}}</span> <strong>{{@member.email}}</strong></li>
+                            <li class="col-md-6">
+                                <span class="label">{{t "Your plan:"}}</span>
+                                <strong>{{t "Free"}}</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="subscription-option">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="javascript:" class="account-button" data-portal="account">{{t "Account settings"}}</a>
+                            </div>
+                            <div class="col-6">
+                                <div class="mem-edit-bill text-end"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

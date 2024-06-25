@@ -1,0 +1,41 @@
+{{!-- post-loop --}}
+<div class="col-md-4">
+    <article class="{{post_class}} image-bg">
+        <figure class="thumb-wrap">
+            <a href="{{url}}">
+                <img class="post-card-image" src="{{img_url feature_image size="sm"}}" loading="lazy" alt="{{title}}" width="416" height="416" />
+            </a>
+            <div class="entry-user">
+                {{#foreach authors}}
+                <div class="thumb">
+                    {{#if profile_image}}
+                    <a href="{{url}}" class="static-avatar">
+                        <img class="author-profile-image" src="{{img_url profile_image size="xxs"}}" alt="{{name}}" width="36" height="36" />
+                    </a>
+                    {{else}}
+                    <a href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</a>
+                    {{/if}}
+                </div>
+                {{/foreach}}
+                <span class="speperator">{{> svg/minus }}</span>
+                <span class="loop-reading-time">{{reading_time}}</span>
+            </div>
+        </figure>
+        <!--./ thumb-wrap -->
+        
+        <div class="content-entry-wrap">
+            <!--./ entry-category -->
+            <div class="entry-category">
+                {{!-- visibility badge --}}
+                {{> members/visibility-paid}}
+                {{tags separator=" "}}
+            </div>
+            <h3 class="entry-title">
+                <a href="{{url}}">
+                    {{title}}
+                </a>
+            </h3>
+        </div>
+        <!--./ content-entry-wrap -->
+    </article>
+</div>

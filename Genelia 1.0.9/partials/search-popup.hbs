@@ -1,0 +1,21 @@
+<!--search overlay content-->
+<div class="overlay-content">
+    <div class="overlay-close"></div>
+    <div class="search-area search-overly  d-flex justify-content-center aligh-items-center flex-column">
+        <div class="cus-container">
+            <div class="search-input-area d-flex align-items-center">
+                <input type="text" id="search-input" class="form-control" placeholder="{{t "type your keywords..."}}">
+                <small class="esc">{{t "ESC"}}</small>
+                <span>{{> svg/search }}</span>
+                <div class="bar-dismiss"><span class="close-icons">{{> svg/times }}</span></div>
+            </div>
+            <!-- search result content -->
+            <div class="search-result">
+                <div class="custom">
+                    <h2 class="no-result">{{{t "<span>0</span> results found in this keyword"}}}</h2>
+                    <div id="search-full-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

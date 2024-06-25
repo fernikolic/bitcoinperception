@@ -1,0 +1,40 @@
+{{#if @site.secondary_navigation}}
+	{{#match for "=" "features"}}
+		<div class="col-lg-3 col-md-6 col-6">
+			<aside class="widget widget_links">
+				{{#if title}}
+				<h2 class="widget-title">{{title}}</h2>
+				{{/if}}
+				<div class="widget-content">
+					{{navigation type="secondary" menu="features" }}
+				</div>
+			</aside>
+		</div>
+	{{/match}}	
+	
+	{{#match for "=" "member"}}
+		<div class="col-lg-3 col-md-6 col-6">
+			<aside class="widget widget_links">
+				{{#if title}}
+				<h2 class="widget-title">{{title}}</h2>
+				{{/if}}
+				<div class="widget-content">
+					{{navigation type="secondary" menu="member" }}
+				</div>
+			</aside>
+		</div>
+	{{/match}}	
+	
+	{{#match for "=" "about"}}
+		<div class="col-lg-2 col-md-6 col-6">
+			<aside class="widget widget_links">
+				{{#if title}}
+				<h2 class="widget-title">{{title}}</h2>
+				{{/if}}
+				<div class="widget-content">
+					{{navigation type="secondary" menu="about" }}
+				</div>
+			</aside>
+		</div>
+	{{/match}}
+{{/if}}

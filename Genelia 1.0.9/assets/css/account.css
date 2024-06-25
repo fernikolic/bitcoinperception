@@ -1,0 +1,125 @@
+.subscribe-section {
+	background-color: #ffffff;
+	position: relative;
+	min-height: 100vh;
+}
+.back-to-home {
+	position: absolute;
+	left: 50px;
+	top: 50px;
+}
+.sign-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 50%;
+}
+.cus-sign-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 550px;
+    width: 100%;
+    padding: 0 15px;
+}
+.custom-feature-sign {
+    width: 50%;
+    height: 100vh;
+}
+.custom-feature-sign img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    visibility: visible;
+    opacity: 1;
+}
+.mb-40 {
+    margin-bottom: 40px;
+}
+.subscribe-title h2 {
+    margin-bottom: 0;
+}
+.form-inner-content {
+    max-width: 390px;
+    width: 100%;
+}
+.single-input {
+    position: relative;
+}
+.signup-form p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    margin-bottom: 0;
+    padding-top: 15px;
+}
+.message-text {
+    max-width: 550px;
+}
+.message-success {
+    color: #07815c;
+    font-size: 16px;
+    line-height: 24px;
+    display: none;
+    margin-top: 10px;
+}
+.message-error {
+    color: #ca203f;
+    font-size: 16px;
+    line-height: 24px;
+    display: none;
+    margin-top: 10px;
+}
+.single-input .form-control {
+    font-size: 16px;
+    line-height: 24px;
+    color: #4a4d56;
+    font-weight: normal;
+    height: 50px;
+    width: 100%;
+    border-radius: 4px 0px 0px 4px;
+    padding: 10px 15px 10px 70px;
+    border: 1px solid #f2f5fb;
+    background-color: #ffffff;
+}
+.subscribe-btn .btn {
+    position: relative;
+    height: 45px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+    background: #6c63ff;
+    border: 1px solid #6c63ff;
+    transition: 0s;
+    width: 100% !important;
+    padding: 8px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.single-input .icon_mail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 60px;
+    background-color: #f2f5fb;
+}
+.single-input .icon_mail i {
+    color: #6c63ff;
+}
+.button-loader {
+    display: none; 
+}
+.mb-20 {
+    margin-bottom: 20px;
+}

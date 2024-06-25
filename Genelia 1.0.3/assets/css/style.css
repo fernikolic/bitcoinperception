@@ -7499,3 +7499,91 @@ body.dark-layout .top-tags .thumb-wrap img {
 body.dark-layout .load-more-btn:hover {
   color: var(--color-white);
 }
+
+.banner-home {
+  padding: 30px 0;
+  background-color: #f8f9fa; /* Optional: Add a background color for contrast */
+}
+
+.banner-home .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.banner-home .content {
+  flex: 1;
+  margin-right: 20px;
+  max-width: 60%;
+}
+
+.banner-home .content h1,
+.banner-home .content h2,
+.banner-home .content p {
+  margin-bottom: 20px; /* Add spacing between elements */
+}
+
+.banner-home .content h1 {
+  font-size: 14px;
+  color: #333; /* Change color to ensure readability */
+  font-weight: 400;
+  font-family: var(--font-family-alt);
+}
+
+.banner-home .content h2 {
+  font-size: 36px; /* Adjust the size for better hierarchy */
+  line-height: 1.2;
+  font-family: var(--heading-font-family);
+  color: #333; /* Change color to ensure readability */
+  margin-bottom: 20px;
+}
+
+.banner-home .content p {
+  font-size: 16px; /* Ensure text is readable */
+  color: #555; /* Change color to ensure readability */
+  margin-bottom: 10px;
+}
+
+.banner-home .content span {
+  border-bottom: 2px solid;
+}
+
+.holder {
+  flex: 1;
+  max-width: 35%;
+}
+
+.subscribe-block-2 {
+  text-align: left; /* Align the form to the left */
+}
+
+.subscribe-block-2 p {
+  margin-top: 10px;
+}
+
+.subscribe-block-2 form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px; /* Add spacing between input and button */
+}
+
+.subscribe-block-2 input[type="email"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px; /* Set a fixed width for the email input */
+}
+
+.subscribe-block-2 button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
